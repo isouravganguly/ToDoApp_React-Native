@@ -1,14 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { FlatList, View, KeyboardAvoidingView, TextInput, StyleSheet, Text, Platform, TouchableWithoutFeedback, Button, Keyboard, Dimensions  } from 'react-native';
 import Card from "./Card";
 
 
-const ListComponent = ({status, arr, completed, deleted}) => {
+const ListComponent = ({prevStatus, status, arr, completed, deleted}) => {
+
+  // --------------"theArr" is the rendering array each Time, "arr" is the real array ------
+  var theArr = arr;
+  console.log(theArr);
+
+  //  ------------Checking for status -- All, Completed, or Active -------
+  if(prevStatus.current !== status){
+    if(status === 2) // ===ACTIVE
+    {
+      theArr = arr.filter((a)=>a.done === false)
+  }
+  else if(status === 1){ // ===COMPLETED
+    theArr = arr.filter((a)=>a.done === true)
+  }
+  else{
+    theArr = arr; //  ===ALL (&&other values)
+  }
+  }
 
     let windowHeight = Dimensions.get('window').height - 326;
-    console.log(windowHeight);
-    let arrLen = arr.length;
-    console.log("List Components -- ", arr)
+    // --------- See the height of the screen  ------
+    // console.log(windowHeight);  
 
   return (
     <KeyboardAvoidingView
@@ -19,10 +36,10 @@ const ListComponent = ({status, arr, completed, deleted}) => {
 
         {arr && <FlatList
         style = {{maxHeight: windowHeight, overflow: true}}
-          data = {arr}
+          data = {theArr}  // rendering value
           renderItem = {({item})=> <Card deleted = {deleted} completed = {completed} item={item}/>}
-          extraData = {arrLen}
-          keyExtractor={(item, index) => 'key'+index}
+          extraData = {theArr} // when this changes, List rerenders
+          keyExtractor={item => item.id}  //  --- Each Item has a Unique ID ---
 
           />}
 

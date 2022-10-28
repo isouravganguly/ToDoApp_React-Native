@@ -2,22 +2,28 @@ import React, {useState} from 'react'
 import {View, Text, StyleSheet, Button} from "react-native"
 import IconF from 'react-native-vector-icons/Feather';
 
-
-
 function Card({item, completed, deleted}) {
+
+    // --- When checkbox icon is clicked ---
     const checked = ()=>{
         completed(item.id);
     }
+
+        // --- When Delete icon is clicked ---
     const deleteThis = ()=>{
         deleted(item.id);
     }
 
+    // ---- When done - strikethrough, not done -- simple text -----
     const done = item.done? [styles.text, styles.strike] :styles.text ;
+
+    // ----- When Checkbox is clicked and un-clicked  ------
     const check = item.done? "check-square" : "square";
+
+
   return (
     <View style={[styles.cardbody, styles.shadow]}>
         <View style= {styles.checkbox} >
-            {/* <Button onPress={checked} title="O"></Button> */}
             <IconF onPress={checked} name={check} size={25} color="#1f1f1f" />
 
         </View>
@@ -25,10 +31,7 @@ function Card({item, completed, deleted}) {
        <Text style = {done}>{item.task}</Text> 
        
        <View style= {styles.deleted} >
-            {/* <Button onPress={deleteThis} title="X"></Button> */}
             <IconF onPress={deleteThis} name="x-circle" size={25} color="##1f1f1f" />
-
-
         </View>
     </View>
   )

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, TextInput, Pressable} from "react-native";
+import {View, Text, StyleSheet, TextInput, Pressable, KeyboardAvoidingView} from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
@@ -12,6 +12,7 @@ function InputComponent({addTask}) {
 }
 
   return (
+    <KeyboardAvoidingView>
     <View style={styles.container}>
         <TextInput
         style= {[styles.inputbox, styles.shadow]}
@@ -22,11 +23,11 @@ function InputComponent({addTask}) {
 
       <View style={[styles.addbutton, styles.shadow]}>
       
-            {/* <Text style={styles.icon}>+</Text> */}
             <Icon onPress={addtodo} name="plus" size={25} color="#1c1c1c" />
 
           </View>
     </View>
+    </KeyboardAvoidingView>
   )
 }
 
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
     margin: 10,
     marginTop: 20,
     justifyContent: 'space-around',
-    marginBottom: 60,
+    marginBottom: 50,
 
   },
   inputbox:{

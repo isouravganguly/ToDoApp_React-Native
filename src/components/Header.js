@@ -12,6 +12,8 @@ function Header({statusType}) {
 
         </TouchableWithoutFeedback>
 
+      {/* ---------- Choose from Status buttons: All, Completed and Active  ----------------- */}
+      
     <View style = {styles.statusButtons}>
     <View style={[styles.button, styles.shadow, styles.All]}>
         <Pressable  onPress={()=>statusType(0)}><Text style={styles.buttonText}>All</Text></Pressable>
