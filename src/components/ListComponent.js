@@ -1,9 +1,12 @@
 import React from 'react';
-import { FlatList, View, KeyboardAvoidingView, TextInput, StyleSheet, Text, Platform, TouchableWithoutFeedback, Button, Keyboard  } from 'react-native';
+import { FlatList, View, KeyboardAvoidingView, TextInput, StyleSheet, Text, Platform, TouchableWithoutFeedback, Button, Keyboard, Dimensions  } from 'react-native';
 import Card from "./Card";
+
 
 const ListComponent = ({status, arr, completed, deleted}) => {
 
+    let windowHeight = Dimensions.get('window').height - 326;
+    console.log(windowHeight);
     let arrLen = arr.length;
     console.log("List Components -- ", arr)
 
@@ -15,7 +18,7 @@ const ListComponent = ({status, arr, completed, deleted}) => {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 
         {arr && <FlatList
-        style = {styles.list}
+        style = {{maxHeight: windowHeight, overflow: true}}
           data = {arr}
           renderItem = {({item})=> <Card deleted = {deleted} completed = {completed} item={item}/>}
           extraData = {arrLen}
@@ -41,11 +44,6 @@ const ListComponent = ({status, arr, completed, deleted}) => {
         color: "#080808",
         fontWeight: "400",
     },
-
-    list:{
-      maxHeight: 520,
-      overflow: true,
-    }
 
   })
 
