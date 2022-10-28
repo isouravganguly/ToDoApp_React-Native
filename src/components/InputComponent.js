@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, TextInput, Pressable} from "react-native";
-
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 function InputComponent({addTask}) {
@@ -21,11 +21,9 @@ function InputComponent({addTask}) {
 
 
       <View style={[styles.addbutton, styles.shadow]}>
-        <Pressable
-          onPress={addtodo}
-          >
-            <Text style={styles.icon}>+</Text>
-          </Pressable>
+      
+            {/* <Text style={styles.icon}>+</Text> */}
+            <Icon onPress={addtodo} name="plus" size={25} color="#1c1c1c" />
 
           </View>
     </View>
@@ -44,7 +42,7 @@ const styles = StyleSheet.create({
   },
   inputbox:{
     backgroundColor: "#fafafa",
-    width: "80%",
+    width: "70%",
     borderRadius: 10,
     height: 60,
     padding: 10,

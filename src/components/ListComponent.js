@@ -2,9 +2,10 @@ import React from 'react';
 import { FlatList, View, KeyboardAvoidingView, TextInput, StyleSheet, Text, Platform, TouchableWithoutFeedback, Button, Keyboard  } from 'react-native';
 import Card from "./Card";
 
-const ListComponent = ({arr, completed, deleted}) => {
+const ListComponent = ({status, arr, completed, deleted}) => {
 
     let arrLen = arr.length;
+    console.log("List Components -- ", arr)
 
   return (
     <KeyboardAvoidingView
