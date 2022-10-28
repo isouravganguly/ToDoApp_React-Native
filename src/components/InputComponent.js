@@ -17,7 +17,13 @@ function InputComponent({addTask}) {
         <TextInput
         style= {[styles.inputbox, styles.shadow]}
         onChangeText = {onChangeText}
-        value= {text}>
+        value= {text}
+        autoCorrect = {false}
+        onSubmitEditing = {()=>{
+          addtodo();
+        }} 
+      >
+        
         </TextInput>
 
 
