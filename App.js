@@ -91,8 +91,8 @@ const App = ()=>{
      
      <View style={styles.body}>
 
-      <ListComponent status = {status} deleted = {deleted} completed={completed} arr = {sendArr}/>
-      <InputComponent addTask = {addTask}/>
+      <ListComponent style = {styles.list} status = {status} deleted = {deleted} completed={completed} arr = {sendArr}/>
+      <InputComponent style = {styles.pos} addTask = {addTask}/>
 
      </View>
     </View>
@@ -109,6 +109,14 @@ const styles = StyleSheet.create({
     flex: 2,
     justifyContent: "space-between",
   },
+
+  pos:{
+    position: "absolute",
+  },
+
+  list:{
+    maxHeight: 50,
+  }
 })
 
 

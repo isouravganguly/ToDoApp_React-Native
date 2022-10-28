@@ -15,6 +15,7 @@ const ListComponent = ({status, arr, completed, deleted}) => {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 
         {arr && <FlatList
+        style = {styles.list}
           data = {arr}
           renderItem = {({item})=> <Card deleted = {deleted} completed = {completed} item={item}/>}
           extraData = {arrLen}
@@ -39,6 +40,11 @@ const ListComponent = ({status, arr, completed, deleted}) => {
     text:{
         color: "#080808",
         fontWeight: "400",
+    },
+
+    list:{
+      maxHeight: 520,
+      overflow: true,
     }
 
   })
