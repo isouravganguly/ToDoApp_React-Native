@@ -5,11 +5,11 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 function InputComponent({addTask}) {
 
-  const [text, onChangeText] = useState();
+  const [text, onChangeText] = useState("");
 
-  const addtodo = () => {
-    addTask(text);
-}
+  const addtodo = () => addTask(text);
+
+const cleanTextBox = () => onChangeText("");
 
   return (
     <KeyboardAvoidingView>
@@ -21,6 +21,7 @@ function InputComponent({addTask}) {
         autoCorrect = {false}
         onSubmitEditing = {()=>{
           addtodo();
+          cleanTextBox();
         }} 
       >
         
