@@ -47,6 +47,8 @@ const styles = StyleSheet.create({
     },
 
     text:{
+        flex: 1,
+        flexWrap: 'wrap',
         fontWeight: "400",
         Color: "#171717",
         fontSize: 30,
