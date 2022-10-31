@@ -31,7 +31,6 @@ const TodoList = () => {
 
   // add: Async storage --
   const addTask = (item) => {
-    console.log(item);
     setArr((pretodo) => {
       return [
         {

@@ -38,3 +38,4 @@ function Filter({ filterType }) {
 }
 
 export default Filter;
+
