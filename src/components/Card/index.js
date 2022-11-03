@@ -3,6 +3,7 @@ import React from "react";
 import { View, Text } from "react-native";
 import IconF from "react-native-vector-icons/Feather";
 
+
 // Importing styles ---
 import styles from "./styles";
 

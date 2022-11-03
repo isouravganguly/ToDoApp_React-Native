@@ -45,7 +45,7 @@ const index = ({ prevfilter, filter, arr, completed, deleted }) => {
             <Card deleted={deleted} completed={completed} item={item} />
           )}
           extraData={theArr} // when this changes, List re-renders
-          keyExtractor={(item) => item.id} //  --- Each Item has a Unique ID ---
+          keyExtractor={(item, index) => index} //  --- Each Item has a Unique ID ---
         />
       )
 }
